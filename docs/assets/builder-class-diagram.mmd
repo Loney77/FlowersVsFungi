@@ -1,0 +1,24 @@
+classDiagram
+    class Game {
+        +spawn_mushroom()
+    }
+
+    class MushroomBuilder {
+        -row
+        -speed
+        -health
+        -color
+        +fast() MushroomBuilder
+        +build() Mushroom
+    }
+
+    class Mushroom {
+        +row
+        +speed
+        +health
+        +color
+        +update()
+    }
+
+    Game ..> MushroomBuilder : использует
+    MushroomBuilder ..> Mushroom : создаёт

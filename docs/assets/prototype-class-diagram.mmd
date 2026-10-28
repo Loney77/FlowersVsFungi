@@ -1,0 +1,23 @@
+classDiagram
+    class Game {
+        -mushroom_prototypes
+        +reset_game()
+        +spawn_mushroom()
+    }
+
+    class Mushroom {
+        +row
+        +speed
+        +health
+        +color
+        +clone(row) Mushroom
+    }
+
+    class MushroomBuilder {
+        +fast()
+        +build() Mushroom
+    }
+
+    Game o-- Mushroom : хранит прототипы
+    Game ..> Mushroom : клонирует
+    MushroomBuilder ..> Mushroom : создаёт прототипы

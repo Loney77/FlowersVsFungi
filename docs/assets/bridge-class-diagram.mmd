@@ -1,0 +1,32 @@
+classDiagram
+    class Entity {
+        <<abstraction>>
+        -renderer
+        +draw(screen)
+        +update()
+    }
+
+    class Flower
+    class Mushroom
+    class Projectile
+
+    class Renderer {
+        <<implementor>>
+        +draw_entity(screen, entity)
+    }
+
+    class PygameRenderer {
+        +draw_entity(screen, entity)
+    }
+
+    class Game {
+        -renderer
+        +draw()
+    }
+
+    Entity <|-- Flower
+    Entity <|-- Mushroom
+    Entity <|-- Projectile
+    Renderer <|-- PygameRenderer
+    Entity o-- Renderer : делегирует отрисовку
+    Game --> Renderer : передаёт сущностям

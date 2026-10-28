@@ -1,0 +1,30 @@
+classDiagram
+    class Client {
+        +main
+    }
+
+    class GameFacade {
+        -game
+        +run()
+    }
+
+    class Game {
+        +handle_event(event)
+        +update()
+        +draw()
+        +reset_game()
+    }
+
+    class PygameEventQueue {
+        +event.get()
+        +key.get_pressed()
+    }
+
+    class GameClock {
+        +tick(fps)
+    }
+
+    Client ..> GameFacade : запускает
+    GameFacade o-- Game : координирует
+    GameFacade ..> PygameEventQueue : обрабатывает ввод
+    GameFacade ..> GameClock : задаёт частоту кадров

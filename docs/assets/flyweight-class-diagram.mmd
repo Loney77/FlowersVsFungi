@@ -1,0 +1,30 @@
+classDiagram
+    class TextureFlyweightFactory {
+        -loader
+        -_textures
+        +get_texture(filename, size) Surface
+    }
+
+    class TextureLoader {
+        +load_texture(filename, size) Surface
+    }
+
+    class PygameTextureAdapter {
+        +load_texture(filename, size) Surface
+    }
+
+    class PygameSurface {
+        <<shared flyweight>>
+        +image data
+    }
+
+    class RoseShooter
+    class SunFlower
+    class Mushroom
+
+    TextureLoader <|-- PygameTextureAdapter
+    TextureFlyweightFactory o-- PygameSurface : caches shared textures
+    TextureFlyweightFactory ..> TextureLoader : loads once per key
+    RoseShooter ..> TextureFlyweightFactory : requests texture
+    SunFlower ..> TextureFlyweightFactory : requests texture
+    Mushroom ..> TextureFlyweightFactory : requests texture

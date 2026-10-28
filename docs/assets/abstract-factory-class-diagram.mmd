@@ -1,0 +1,24 @@
+classDiagram
+    class Game {
+        -plant_factory
+        +try_plant_flower(pos)
+    }
+
+    class PlantFactory {
+        <<abstract>>
+        +create_attacker(row, col)
+        +create_resource_generator(row, col)
+    }
+
+    class GardenPlantFactory {
+        +create_attacker(row, col) RoseShooter
+        +create_resource_generator(row, col) SunFlower
+    }
+
+    class RoseShooter
+    class SunFlower
+
+    PlantFactory <|-- GardenPlantFactory
+    Game o-- PlantFactory : использует
+    GardenPlantFactory ..> RoseShooter : создаёт
+    GardenPlantFactory ..> SunFlower : создаёт

@@ -1,0 +1,32 @@
+classDiagram
+    class Flower {
+        +damage
+        +draw(screen)
+        +can_shoot(current_time)
+    }
+
+    class RoseShooter {
+        +damage
+        +shoot_cooldown
+    }
+
+    class FlowerDecorator {
+        -_flower
+        +draw(screen)
+        +update(current_time, projectiles)
+    }
+
+    class EmpoweredFlowerDecorator {
+        +damage
+        +draw(screen)
+    }
+
+    class Game {
+        +try_plant_flower(pos)
+    }
+
+    Flower <|-- RoseShooter
+    Flower <|-- FlowerDecorator
+    FlowerDecorator <|-- EmpoweredFlowerDecorator
+    FlowerDecorator o-- Flower : оборачивает
+    Game ..> EmpoweredFlowerDecorator : применяет к розе

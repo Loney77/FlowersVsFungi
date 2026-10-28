@@ -1,0 +1,36 @@
+classDiagram
+    class EntityComponent {
+        <<interface>>
+        +draw(screen)
+    }
+
+    class Entity {
+        -renderer
+        +draw(screen)
+    }
+
+    class Flower
+    class Mushroom
+    class Projectile
+
+    class EntityGroup {
+        -children
+        +add(component)
+        +draw(screen)
+        +remove_dead()
+    }
+
+    class Game {
+        -entities
+        -plant_group
+        -mushroom_group
+        +draw()
+    }
+
+    EntityComponent <|.. Entity
+    EntityComponent <|.. EntityGroup
+    Entity <|-- Flower
+    Entity <|-- Mushroom
+    Entity <|-- Projectile
+    EntityGroup *-- EntityComponent : содержит
+    Game *-- EntityGroup : корневая группа

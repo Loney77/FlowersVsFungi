@@ -1,0 +1,25 @@
+classDiagram
+    class TextureLoader {
+        <<interface>>
+        +load_texture(filename, size)
+    }
+
+    class PygameTextureAdapter {
+        -assets_dir
+        +load_texture(filename, size)
+    }
+
+    class PygameImageAPI {
+        +image.load(path)
+        +transform.scale(surface, size)
+    }
+
+    class RoseShooter
+    class SunFlower
+    class Mushroom
+
+    TextureLoader <|-- PygameTextureAdapter
+    PygameTextureAdapter ..> PygameImageAPI : адаптирует вызовы
+    RoseShooter ..> TextureLoader : загружает текстуру
+    SunFlower ..> TextureLoader : загружает текстуру
+    Mushroom ..> TextureLoader : загружает текстуру
