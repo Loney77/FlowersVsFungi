@@ -1,0 +1,42 @@
+classDiagram
+    direction TB
+    class PlantingRequest {
+        +pos: tuple
+        +plant_type: str
+        +row: int
+        +col: int
+        +cost: int
+    }
+    class PlantingHandler {
+        <<abstract>>
+        +game: Game
+        -_next: PlantingHandler
+        +set_next(handler) PlantingHandler
+        +handle(request) bool
+        +check(request) bool
+    }
+    class GameStateHandler {
+        +check(request) bool
+    }
+    class BoundsHandler {
+        +check(request) bool
+    }
+    class EmptyCellHandler {
+        +check(request) bool
+    }
+    class SunBalanceHandler {
+        +costs: dict
+        +check(request) bool
+    }
+    class PlantingProxy {
+        +validation_chain: PlantingHandler
+        +place(pos, plant_type) bool
+    }
+    GameStateHandler --|> PlantingHandler
+    BoundsHandler --|> PlantingHandler
+    EmptyCellHandler --|> PlantingHandler
+    SunBalanceHandler --|> PlantingHandler
+    PlantingHandler o--> PlantingHandler : следующий обработчик
+    PlantingHandler ..> PlantingRequest : проверяет запрос
+    PlantingProxy --> PlantingHandler : запускает цепочку
+    PlantingProxy ..> PlantingRequest : создаёт

@@ -1,0 +1,34 @@
+classDiagram
+    direction TB
+    class StatisticsObserver {
+        <<interface>>
+        +update(score, sun)
+    }
+    class GameStatistics {
+        +score: int
+        +sun: int
+        -_observers: list
+        +attach(observer)
+        +detach(observer)
+        +notify()
+        +set_score(value)
+        +set_sun(value)
+        +reset(score, sun)
+    }
+    class StatisticsPanel {
+        +score_text: Surface
+        +sun_text: Surface
+        +update(score, sun)
+        +draw(screen)
+    }
+    class Game {
+        +statistics: GameStatistics
+        +statistics_panel: StatisticsPanel
+        +score: int
+        +sun: int
+        +draw()
+    }
+    StatisticsPanel ..|> StatisticsObserver
+    GameStatistics o--> StatisticsObserver : уведомляет подписчиков
+    Game --> GameStatistics : изменяет показатели
+    Game --> StatisticsPanel : подписывает и отображает

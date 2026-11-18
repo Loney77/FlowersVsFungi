@@ -18,11 +18,11 @@
 
 Текстуры повторно используются многими игровыми объектами. `TextureFlyweightFactory` хранит загруженные изображения в кэше по имени файла и размеру. При повторном запросе фабрика возвращает уже загруженную текстуру, а не создаёт новую. Загрузку выполняет `TextureLoader`, реализованный адаптером Pygame.
 
-![Диаграмма классов паттерна «Приспособленец»](assets/flyweight-class-diagram.png)
+![Диаграмма классов паттерна «Приспособленец»](../assets/flyweight-class-diagram.png)
 
 *Рисунок 1 - Диаграмма классов паттерна «Приспособленец».*
 
-Исходник Mermaid: [flyweight-class-diagram.mmd](assets/flyweight-class-diagram.mmd).
+Исходник Mermaid: [flyweight-class-diagram.mmd](../assets/flyweight-class-diagram.mmd).
 
 **Листинг 1 - Кэширование общих текстур.**
 
@@ -51,11 +51,11 @@ self.texture = TEXTURE_FLYWEIGHTS.get_texture(
 
 `GameFacade` предоставляет приложению единый метод `run()`. За ним скрыта координация очереди событий Pygame, обновления игрового состояния, отрисовки кадра и ограничения частоты кадров. Поэтому точка входа запускает игру через фасад, не вызывая эти подсистемы отдельно.
 
-![Диаграмма классов паттерна «Фасад»](assets/facade-class-diagram.png)
+![Диаграмма классов паттерна «Фасад»](../assets/facade-class-diagram.png)
 
 *Рисунок 2 - Диаграмма классов паттерна «Фасад».*
 
-Исходник Mermaid: [facade-class-diagram.mmd](assets/facade-class-diagram.mmd).
+Исходник Mermaid: [facade-class-diagram.mmd](../assets/facade-class-diagram.mmd).
 
 **Листинг 2 - Единый интерфейс игрового цикла.**
 

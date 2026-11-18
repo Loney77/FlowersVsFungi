@@ -1,0 +1,36 @@
+classDiagram
+    direction TB
+    class GameState {
+        <<interface>>
+        +is_game_over: bool
+        +handle_event(game, event)
+        +update(game)
+        +draw_overlay(game)
+    }
+    class PlayingState {
+        +handle_event(game, event)
+        +update(game)
+    }
+    class GameOverState {
+        +is_game_over: bool
+        +handle_event(game, event)
+        +update(game)
+        +draw_overlay(game)
+    }
+    class Game {
+        +state: GameState
+        +set_state(state)
+        +handle_event(event)
+        +update()
+        +update_playing()
+        +reset_game()
+    }
+    class GardenCombatMediator {
+        +update(current_time)
+    }
+    PlayingState --|> GameState
+    GameOverState --|> GameState
+    Game --> GameState : делегирует поведение
+    PlayingState ..> Game : обновляет игру и обрабатывает посадку
+    GameOverState ..> Game : перезапускает по R
+    GardenCombatMediator ..> Game : устанавливает GameOverState при прорыве

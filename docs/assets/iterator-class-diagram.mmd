@@ -1,0 +1,32 @@
+classDiagram
+    direction TB
+    class EntityComponent {
+        <<interface>>
+        +draw(screen)
+    }
+    class Entity {
+        +draw(screen)
+    }
+    class EntityGroup {
+        +children: list
+        +add(component)
+        +__iter__() EntityIterator
+        +draw(screen)
+    }
+    class EntityIterator {
+        -_stack: list
+        +__iter__() EntityIterator
+        +__next__() EntityComponent
+    }
+    class Game {
+        +entities: EntityGroup
+        +update()
+    }
+    Entity --|> EntityComponent
+    EntityGroup --|> EntityComponent
+    EntityGroup o-- EntityComponent : хранит
+    EntityGroup ..> EntityIterator : создаёт при iter
+    EntityIterator ..> EntityGroup : обходит вложенные группы
+    EntityIterator ..> EntityComponent : возвращает сущности
+    Game --> EntityGroup : хранит дерево объектов
+    Game ..> EntityIterator : перебирает через for

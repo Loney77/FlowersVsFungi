@@ -1,0 +1,27 @@
+classDiagram
+    direction TB
+    class Game {
+        <<Originator>>
+        +history: GameHistory
+        +create_snapshot() GameSnapshot
+        +restore_snapshot(snapshot)
+        +handle_event(event)
+    }
+    class GameSnapshot {
+        <<Memento>>
+        -__state: dict
+        -_copy_entity(entity)
+        -_copy_state(state) dict
+        +get_state() dict
+    }
+    class GameHistory {
+        <<Caretaker>>
+        +game: Game
+        -_snapshot: GameSnapshot
+        +save()
+        +restore() bool
+    }
+    Game --> GameHistory : F5 и F9
+    Game ..> GameSnapshot : создаёт и восстанавливает состояние
+    GameHistory o-- GameSnapshot : хранит один снимок
+    GameHistory --> Game : запрашивает сохранение и восстановление

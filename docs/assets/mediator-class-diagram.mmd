@@ -1,0 +1,35 @@
+classDiagram
+    direction TB
+    class CombatMediator {
+        <<interface>>
+        +update(current_time)
+    }
+    class GardenCombatMediator {
+        +game: Game
+        +update(current_time)
+    }
+    class Game {
+        +combat_mediator: CombatMediator
+        +sun: int
+        +score: int
+        +game_over: bool
+        +update()
+    }
+    class Flower {
+        +can_shoot(current_time) bool
+        +take_damage(amount)
+    }
+    class Mushroom {
+        +update()
+        +take_damage(amount)
+    }
+    class Projectile {
+        +damage: int
+        +update()
+    }
+    GardenCombatMediator ..|> CombatMediator
+    Game --> CombatMediator : поручает обработку боя
+    GardenCombatMediator --> Game : использует группы и состояние
+    GardenCombatMediator ..> Flower : проверяет стрельбу и генерацию солнца
+    GardenCombatMediator ..> Mushroom : согласует движение и поедание
+    GardenCombatMediator ..> Projectile : создаёт и обрабатывает попадания

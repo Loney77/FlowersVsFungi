@@ -18,11 +18,11 @@
 
 Игровые объекты объединены в дерево компонентов. `Entity` и `EntityGroup` поддерживают общий интерфейс `EntityComponent`. Корневая группа хранит отдельные группы растений и грибов, поэтому отрисовать все игровые объекты можно одним вызовом `draw()`. При этом группа поддерживает вложенные группы, а игровой цикл может перебирать содержащиеся в них сущности.
 
-![Диаграмма классов паттерна «Компоновщик»](assets/composite-class-diagram.png)
+![Диаграмма классов паттерна «Компоновщик»](../assets/composite-class-diagram.png)
 
 *Рисунок 1 - Диаграмма классов паттерна «Компоновщик».*
 
-Исходник Mermaid: [composite-class-diagram.mmd](assets/composite-class-diagram.mmd).
+Исходник Mermaid: [composite-class-diagram.mmd](../assets/composite-class-diagram.mmd).
 
 **Листинг 1 - Компонент и компоновщик игровых сущностей.**
 
@@ -79,11 +79,11 @@ class Game:
 
 `FlowerDecorator` оборачивает обычный цветок и сохраняет интерфейс `Flower`. `EmpoweredFlowerDecorator` удваивает урон розы и рисует вокруг неё золотую рамку, не изменяя исходный класс `RoseShooter`. В игре усиленная роза выбирается клавишей **3** и стоит 75 единиц солнца.
 
-![Диаграмма классов паттерна «Декоратор»](assets/decorator-class-diagram.png)
+![Диаграмма классов паттерна «Декоратор»](../assets/decorator-class-diagram.png)
 
 *Рисунок 2 - Диаграмма классов паттерна «Декоратор».*
 
-Исходник Mermaid: [decorator-class-diagram.mmd](assets/decorator-class-diagram.mmd).
+Исходник Mermaid: [decorator-class-diagram.mmd](../assets/decorator-class-diagram.mmd).
 
 **Листинг 2 - Декоратор усиленной розы.**
 
@@ -132,7 +132,7 @@ new_flower = EmpoweredFlowerDecorator(rose)
 
 ### Результат работы программы
 
-![Результат работы игры](assets/game-result4.png)
+![Результат работы игры](../assets/game-result4.png)
 
 *Рисунок 3 - Растения защищают поле от грибов.*
 

@@ -18,9 +18,9 @@
 
 Pygame загружает изображение и масштабирует его отдельными вызовами. Игровым объектам нужен единый метод `load_texture(filename, size)`. Интерфейс `TextureLoader` задаёт этот метод, а `PygameTextureAdapter` переводит его вызов в операции `pygame.image.load()` и `pygame.transform.scale()`. Классы растений и грибов загружают текстуры через адаптер.
 
-![Диаграмма классов паттерна «Адаптер»](assets/adapter-class-diagram.png)
+![Диаграмма классов паттерна «Адаптер»](../assets/adapter-class-diagram.png)
 
-*Исходник Mermaid: [adapter-class-diagram.mmd](assets/adapter-class-diagram.mmd).*
+*Исходник Mermaid: [adapter-class-diagram.mmd](../assets/adapter-class-diagram.mmd).*
 
 *Рисунок 1 - Диаграмма классов паттерна «Адаптер».*
 
@@ -55,9 +55,9 @@ class RoseShooter(Flower):
 
 `Entity` задаёт общий способ отображения игровых объектов и делегирует отрисовку объекту `Renderer`. `PygameRenderer` реализует этот интерфейс средствами Pygame: выводит текстуру или, если её нет, рисует цветной прямоугольник. Иерархия игровых сущностей (`Flower`, `Mushroom`, `Projectile`) отделена от иерархии реализаций отрисовки.
 
-![Диаграмма классов паттерна «Мост»](assets/bridge-class-diagram.png)
+![Диаграмма классов паттерна «Мост»](../assets/bridge-class-diagram.png)
 
-*Исходник Mermaid: [bridge-class-diagram.mmd](assets/bridge-class-diagram.mmd).*
+*Исходник Mermaid: [bridge-class-diagram.mmd](../assets/bridge-class-diagram.mmd).*
 
 *Рисунок 2 - Диаграмма классов паттерна «Мост».*
 

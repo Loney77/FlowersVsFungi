@@ -1,0 +1,32 @@
+classDiagram
+    direction TB
+    class Command {
+        <<interface>>
+        +execute() bool
+    }
+    class PlantFlowerCommand {
+        +planting_service: PlantingService
+        +pos: tuple
+        +plant_type: str
+        +execute() bool
+    }
+    class CommandInvoker {
+        +execute(command) bool
+    }
+    class PlantingService {
+        <<interface>>
+        +place(pos, plant_type) bool
+    }
+    class PlantingProxy {
+        +place(pos, plant_type) bool
+    }
+    class Game {
+        +command_invoker: CommandInvoker
+        +try_plant_flower(pos) bool
+    }
+    PlantFlowerCommand ..|> Command
+    PlantingProxy ..|> PlantingService
+    PlantFlowerCommand --> PlantingService : получатель запроса
+    CommandInvoker ..> Command : вызывает execute
+    Game --> CommandInvoker : запускает команду
+    Game ..> PlantFlowerCommand : создаёт с параметрами
