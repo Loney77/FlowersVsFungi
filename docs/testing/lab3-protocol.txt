@@ -1,0 +1,10 @@
+test_eaten_flower_frees_cell_for_planting (test_lab3_integration.IntegrationTests.test_eaten_flower_frees_cell_for_planting) ... ok
+test_empowered_damage_reaches_projectile (test_lab3_integration.IntegrationTests.test_empowered_damage_reaches_projectile) ... ok
+test_generated_sun_can_be_spent (test_lab3_integration.IntegrationTests.test_generated_sun_can_be_spent) ... ok
+test_other_row_does_not_trigger_shooting (test_lab3_integration.IntegrationTests.test_other_row_does_not_trigger_shooting) ... ok
+test_rose_projectile_kills_mushroom (test_lab3_integration.IntegrationTests.test_rose_projectile_kills_mushroom) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 1.847s
+
+OK

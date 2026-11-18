@@ -1,0 +1,10 @@
+test_input_after_game_over (test_lab2_automation.AutomationTests.test_input_after_game_over) ... ok
+test_repeated_click (test_lab2_automation.AutomationTests.test_repeated_click) ... ok
+test_reset_game (test_lab2_automation.AutomationTests.test_reset_game) ... ok
+test_right_click_ignored (test_lab2_automation.AutomationTests.test_right_click_ignored) ... ok
+test_select_and_plant (test_lab2_automation.AutomationTests.test_select_and_plant) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 1.844s
+
+OK

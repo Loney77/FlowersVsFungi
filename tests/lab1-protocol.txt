@@ -1,0 +1,12 @@
+test_W02_rose_exact_cost (test_lab1_whitebox.WhiteBoxTests.test_W02_rose_exact_cost) ... ok
+test_W03_sunflower_exact_cost (test_lab1_whitebox.WhiteBoxTests.test_W03_sunflower_exact_cost) ... ok
+test_W04_empowered_exact_cost (test_lab1_whitebox.WhiteBoxTests.test_W04_empowered_exact_cost) ... ok
+test_W05_insufficient_resources (test_lab1_whitebox.WhiteBoxTests.test_W05_insufficient_resources) ... ok
+test_W06_occupied_cell (test_lab1_whitebox.WhiteBoxTests.test_W06_occupied_cell) ... ok
+test_W07_outside_grid (test_lab1_whitebox.WhiteBoxTests.test_W07_outside_grid) ... ok
+test_W08_last_pixel_inside_grid (test_lab1_whitebox.WhiteBoxTests.test_W08_last_pixel_inside_grid) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 2.572s
+
+OK
