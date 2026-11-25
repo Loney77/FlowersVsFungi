@@ -21,7 +21,9 @@ RED = (220, 20, 60)
 YELLOW = (255, 215, 0)
 GRAY = (169, 169, 169)
 
-TEXTURES_DIR = Path(__file__).resolve().parent / "textures"
+PROJECT_DIR = Path(__file__).resolve().parent
+TEXTURES_DIR = PROJECT_DIR / "textures"
+UI_FONT_PATH = PROJECT_DIR / "fonts" / "DejaVuSans.ttf"
 
 
 class TextureLoader:
@@ -689,7 +691,7 @@ class GameOverState(GameState):
         text = game.font.render(
             "GAME OVER! Грибы прорвались. Нажмите R для рестарта.", True, RED
         )
-        game.screen.blit(text, (WIDTH // 2 - 250, HEIGHT // 2))
+        game.screen.blit(text, text.get_rect(midtop=(WIDTH // 2, HEIGHT // 2)))
 
 
 # ИГРОВОЙ МЕНЕДЖЕР 
@@ -700,7 +702,7 @@ class Game:
         self.screen = pygame.display.set_mode((WIDTH, HEIGHT))
         pygame.display.set_caption("Цветы против Грибов")
         self.clock = pygame.time.Clock()
-        self.font = pygame.font.SysFont("arial", 24)
+        self.font = pygame.font.Font(str(UI_FONT_PATH), 24)
         self.statistics = GameStatistics()
         self.statistics_panel = StatisticsPanel(self.font)
         self.statistics.attach(self.statistics_panel)
@@ -868,15 +870,15 @@ class Game:
         sunflower_marker = "> " if self.selected_flower == "sunflower" else "  "
         empowered_marker = "> " if self.selected_flower == "empowered_rose" else "  "
         controls = [
-            f"{rose_marker}1 — Роза (50 солнца)",
-            f"{sunflower_marker}2 — Подсолнух (25 солнца)",
-            f"{empowered_marker}3 — Усиленная роза (75 солнца)",
+            f"{rose_marker}1 - Роза (50 солнца)",
+            f"{sunflower_marker}2 - Подсолнух (25 солнца)",
+            f"{empowered_marker}3 - Усиленная роза (75 солнца)",
         ]
         for index, label in enumerate(controls):
             option_text = self.font.render(label, True, BLACK)
             self.screen.blit(option_text, (GRID_OFFSET_X, controls_y + index * 28))
 
-        snapshot_hint = self.font.render("F5 — сохранить, F9 — восстановить", True, WHITE)
+        snapshot_hint = self.font.render("F5 - сохранить, F9 - восстановить", True, WHITE)
         self.screen.blit(snapshot_hint, (GRID_OFFSET_X, controls_y + 94))
         if self.snapshot_message:
             message = self.font.render(self.snapshot_message, True, YELLOW)
